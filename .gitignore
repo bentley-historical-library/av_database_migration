@@ -1,5 +1,7 @@
 *.pyc
 *.csv
 *.xml
-*.txt
 *.PNG
+data/
+venv
+.vscode

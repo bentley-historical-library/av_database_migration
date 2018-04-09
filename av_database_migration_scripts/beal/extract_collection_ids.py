@@ -1,9 +1,9 @@
-from av_database_migration.config import FMPRO_NSMAP, beal_data_dir, beal_export_dir
+from av_database_migration_scripts.config import FMPRO_NSMAP, beal_dir, beal_export_dir
 from lxml import etree
 import os
 
 collection_ids = []
-export_dir = os.path.join(beal_data_dir, "lib")
+export_dir = os.path.join(beal_dir, "lib")
 collection_id_file = os.path.join(export_dir, "collection_ids.txt")
 collection_info_filepath = os.path.join(beal_export_dir, "COLLECTION_INFO.xml")
 tree = etree.parse(collection_info_filepath)

@@ -1,12 +1,10 @@
-# coding: utf8
-
-from av_database_migration.config import FMPRO_NSMAP
+from av_database_migration_scripts.config import FMPRO_NSMAP
 
 import re
 
 def extract_text_from_element(element):
     if element.text is not None:
-        return element.text.strip().encode("utf-8").replace('“', '"').replace('”', '"')
+        return element.text.strip().replace('“', '"').replace('”', '"')
     else:
         return ""
 

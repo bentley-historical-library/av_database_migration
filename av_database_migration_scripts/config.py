@@ -21,9 +21,9 @@ EXPECTED_BEAL_EXPORTS = ['Audio_dig_workflow.xml',
                     'COLLECTION_INFO.xml', 
                     'Digital_Vendor.xml']
                     
-base_dir = os.path.dirname(os.path.abspath(__file__))
-beal_dir = os.path.join(base_dir, "beal")
-beal_data_dir = os.path.join(beal_dir, "data")
-beal_export_dir = os.path.join(beal_data_dir, "exports")
-shared_dir = os.path.join(base_dir, "shared")
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+data_dir = os.path.join(base_dir, "data")
+beal_dir = os.path.join(data_dir, "beal")
+beal_export_dir = os.path.join(beal_dir, "exports")
+shared_dir = os.path.join(data_dir, "shared")
 aspace_data_dir = os.path.join(shared_dir, "aspace_exports")

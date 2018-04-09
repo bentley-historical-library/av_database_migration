@@ -1,5 +1,5 @@
-from av_database_migration.config import EXPECTED_BEAL_EXPORTS, FMPRO_NSMAP, COLLECTIONID_NORMALIZATION, beal_export_dir
-from av_database_migration.shared.scripts.utils import extract_text_from_element, combine_elements_from_row, regex_replacement
+from av_database_migration_scripts.config import EXPECTED_BEAL_EXPORTS, FMPRO_NSMAP, COLLECTIONID_NORMALIZATION, beal_export_dir
+from av_database_migration_scripts.shared.utils import extract_text_from_element, combine_elements_from_row, regex_replacement
 from lxml import etree
 import operator
 import os
@@ -91,7 +91,7 @@ mandatory_fields = {'Audio_dig_workflow.xml': [],
 for filename in EXPECTED_BEAL_EXPORTS:
     filepath = os.path.join(beal_export_dir, filename)
     if not os.path.exists(filepath):
-        print "{} not found".format(filepath)
+        print("{} not found".format(filepath))
         sys.exit()
 
 for filename in os.listdir(beal_export_dir):

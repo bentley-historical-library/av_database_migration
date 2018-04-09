@@ -1,5 +1,5 @@
-from av_database_migration.config import FMPRO_NSMAP, beal_data_dir, beal_export_dir
-from av_database_migration.shared.scripts.utils import extract_text_from_element
+from av_database_migration_scripts.config import FMPRO_NSMAP, beal_dir, beal_export_dir
+from av_database_migration_scripts.shared.utils import extract_text_from_element
 import csv
 from lxml import etree
 import os
@@ -16,7 +16,7 @@ descriptive_elements = {"Item_Identifier": "CollItemNo",
                         "TechnicalNote": "NoteTechnical",
                         }
 
-export_dir = os.path.join(beal_data_dir, "lib")
+export_dir = os.path.join(beal_dir, "lib")
 item_descriptions_file = os.path.join(export_dir, "item_descriptions.csv")
 avdigpres_filepath = os.path.join(beal_export_dir, "AVDIGPRES.xml")
 tree = etree.parse(avdigpres_filepath)
@@ -31,7 +31,7 @@ for row in rows:
 
 headers = ["Item_Identifier", "PartIdentifier", "ProgramTitle", "Title", "ItemPart", "PartTitle", "PartSegment", "ItemDate", "Abstract", "TechnicalNote"]
 
-with open(item_descriptions_file, "wb") as f:
+with open(item_descriptions_file, "w", newline="", encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames=headers)
     writer.writeheader()
     writer.writerows(data)

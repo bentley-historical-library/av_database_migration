@@ -1,5 +1,5 @@
-from av_database_migration.config import FMPRO_NSMAP, beal_data_dir, beal_export_dir
-from av_database_migration.shared.scripts.utils import extract_text_from_element
+from av_database_migration_scripts.config import FMPRO_NSMAP, beal_dir, beal_export_dir
+from av_database_migration_scripts.shared.utils import extract_text_from_element
 import csv
 from lxml import etree
 import os
@@ -18,7 +18,7 @@ descriptive_elements = {"Item_Identifier": "CollItemNo",
 
 items_to_titles = {}
 
-export_dir = os.path.join(beal_data_dir, "lib")
+export_dir = os.path.join(beal_dir, "lib")
 items_with_multiple_titles_file = os.path.join(export_dir, "items_with_multiple_titles.csv")
 avdigpres_filepath = os.path.join(beal_export_dir, "AVDIGPRES.xml")
 tree = etree.parse(avdigpres_filepath)
@@ -49,7 +49,7 @@ for i in range(most_titles):
     headers.append("title_{}".format(i+1))
     headers.append("digfile_calcs_{}".format(i+1))
 
-with open(items_with_multiple_titles_file, "wb") as f:
+with open(items_with_multiple_titles_file, "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerow(headers)
     writer.writerows(data)

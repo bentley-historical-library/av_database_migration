@@ -1,0 +1,3 @@
+git+https://github.com/djpillen/ASpaceAPI.git
+lxml
+tqdm
