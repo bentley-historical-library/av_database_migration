@@ -33,8 +33,8 @@ for row in rows:
         items_to_titles[item_identifier][item_title] = []
     items_to_titles[item_identifier][item_title].append(digfile_calc)
 
-duplicates = [item_identifier for item_identifier, titles in items_to_titles.items() if len(titles.keys()) > 1]
-most_titles = max([len(titles.keys()) for item_identifier, titles in items_to_titles.items()])
+duplicates = [item_id for item_id, titles in items_to_titles.items() if len(titles.keys()) > 1]
+most_titles = max([len(titles.keys()) for item_id, titles in items_to_titles.items()])
 
 data = []
 for duplicate in duplicates:
@@ -53,4 +53,3 @@ with open(items_with_multiple_titles_file, "w", newline="", encoding="utf-8") as
     writer = csv.writer(f)
     writer.writerow(headers)
     writer.writerows(data)
-

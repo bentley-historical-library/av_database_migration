@@ -14,4 +14,3 @@ for collection_id_element in collection_id_elements:
 
 with open(collection_id_file, "w") as f:
     f.write("\n".join(collection_ids))
-

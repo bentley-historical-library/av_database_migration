@@ -35,4 +35,3 @@ with open(item_descriptions_file, "w", newline="", encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames=headers)
     writer.writeheader()
     writer.writerows(data)
-
